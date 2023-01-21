@@ -6,14 +6,14 @@ import Card from '../components/Card.astro';
 <style>
 	@font-face {
 		font-family: 'DivineLight';
-		src: url('/DivineLight.tff') format('tff');
+		src: url('fonts/DivineLight.woff') format('woff');
 		font-weight: normal;
 		font-style: normal;
 		font-display: swap;
 	}
 	@font-face {
 		font-family: 'Quake';
-		src: url('/Quake1.tff') format('tff');
+		src: url('fonts/Quake1.tff') format('tff');
 		font-weight: normal;
 		font-style: normal;
 		font-display: swap;
@@ -21,21 +21,25 @@ import Card from '../components/Card.astro';
 	main {
 		margin: auto;
 		padding: 1.5rem;
-		max-width: 60ch;
+		max-width: 80ch;
 	}
 	h1 {
 		font-size: 3rem;
 		font-weight: 800;
+		color:  #db3024;
 		margin: 0;
 		font-family: 'DivineLight';
 	}
-	.text-gradient {
+	.divine-red {
+		color: #75fb50;
+	}
+	/* .text-gradient {
 		background-image: var(--accent-gradient);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-size: 400%;
 		background-position: 0%;
-	}
+	} */
 	.instructions {
 		line-height: 1.6;
 		margin: 1rem 0;
@@ -66,8 +70,8 @@ import Card from '../components/Card.astro';
 
 <Layout title="Gump's Gulch">
 	<main>
-		<h1>Welcome to <span class="text-gradient">Gump's Gulch</span></h1>
-		<p class="instructions">
+		<h1>Welcome to <span class="divine-red">Gump's Gulch</span></h1>
+		<!-- <p class="instructions">
 			To get started, open the directory <code>src/pages</code> in your project.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
 		</p>
@@ -92,6 +96,6 @@ import Card from '../components/Card.astro';
 				title="Community"
 				body="Come say hi to our amazing Discord community. ❤️"
 			/>
-		</ul>
+		</ul> -->
 	</main>
 </Layout>
