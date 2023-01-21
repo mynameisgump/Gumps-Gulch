@@ -4,16 +4,30 @@ import Card from '../components/Card.astro';
 ---
 
 <style>
+	@font-face {
+		font-family: 'DivineLight';
+		src: url('/DivineLight.tff') format('tff');
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: 'Quake';
+		src: url('/Quake1.tff') format('tff');
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
 	main {
 		margin: auto;
 		padding: 1.5rem;
 		max-width: 60ch;
-		background-image: url("https://bghq.com/textures/doom/609.png");
 	}
 	h1 {
 		font-size: 3rem;
 		font-weight: 800;
 		margin: 0;
+		font-family: 'DivineLight';
 	}
 	.text-gradient {
 		background-image: var(--accent-gradient);
