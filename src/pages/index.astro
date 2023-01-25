@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 ---
 
 <style>
@@ -11,84 +10,52 @@ import Card from '../components/Card.astro';
 		font-style: normal;
 		font-display: swap;
 	}
-	main {
+	body {
+		background-image: url("/assets/images/cruelty/carpet2.png");
+	}
+	header {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		background-image: url("/assets/images/doom/bluebrick.png");
+		min-height: 10ch;
+		max-width: 120ch;
 		margin: auto;
-		padding: 1.5rem;
-		max-width: 80ch;
 	}
 	h1 {
 		font-size: 3rem;
-		font-weight: 800;
+		font-weight: 1;
 		color:  #db3024;
-		margin: 0;
+		margin: auto;
 		font-family: 'DivineLight';
+		text-align : center;
 	}
-	.divine-red {
+	.divine-green {
 		color: #75fb50;
 	}
-	/* .text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	} */
-	/* .instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
+	hr {
+		width: 70%;
+        margin-left: auto;
+        margin-right: auto;
 	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
+	.break {
+		flex-basis: 90%;
+		height: 0;
 	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
+		/* main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 80ch;
+		
 	} */
 </style>
 
 
 <Layout title="Gump's Gulch">
-	<main>
-		<h1>Welcome to <span class="divine-red">Gump's Gulch</span></h1>
-		<!-- <p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul> -->
-	</main>
+	<header>
+		<h1>Welcome to <span class="divine-green">Gump's Gulch</span></h1>
+		<div class="break"/>
+		<hr />
+	</header>
 </Layout>
