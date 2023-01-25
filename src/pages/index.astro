@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Gump from '../components/Gump.astro';
+import Education from '../components/Education.astro';
+import Experience from '../components/Experience.astro';
 ---
 
 <style>
@@ -14,16 +17,19 @@ import Layout from '../layouts/Layout.astro';
 		background-image: url("/assets/images/doom/bluebrick.png");
 	}
 	header {
+		margin-top: 3vh;
 		display: block;
 		justify-content: center;
 		align-items: center;
 		background-image: url("/assets/images/cruelty/crungewallpaper.png");
 		min-height: 10ch;
 		max-width: 120ch;
-		margin: auto;
 		text-align: center;
 		margin-left: auto;
 		margin-right: auto;
+		border-style: ridge;
+		border-color: #5F5536;
+		border-width: 2ch;
 	}
 	h1 {
 		font-size: 3rem;
@@ -64,4 +70,9 @@ import Layout from '../layouts/Layout.astro';
 		<a href="url">projects</a>
 		<a href="url">rants</a>
 	</header>
+	<main>
+		<Gump></Gump>
+		<Education></Education>
+		<Experience></Experience>
+	</main>
 </Layout>

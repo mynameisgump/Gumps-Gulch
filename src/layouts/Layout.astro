@@ -20,7 +20,18 @@ const { title } = Astro.props;
 	</body>
 </html>
 <style is:global>
-  * {
-    box-sizing: border-box;
+  *, ::after, ::before {
+	box-sizing: border-box;
+  }
+  html {
+	margin-top: 0;
+	overflow-y: scroll;
+	overflow: hidden;
+	height: 100vh;
+  }
+  body {
+	margin: 0;
+	height: 100vh;
+	overflow: auto;
   }
 </style>
