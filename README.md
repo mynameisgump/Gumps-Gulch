@@ -1,7 +1,7 @@
 # Welcome to [Gump's Gulch](https://astro.build)
 
-
 Cruelty Color Codes:
+
 Bright Pink:
 232 80 171
 
@@ -20,4 +20,5 @@ Icaros Red:
 Text Darker Green:
 166 195 95
 
+Borderline Blue
 111 239 252

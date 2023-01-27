@@ -1,78 +1,50 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Gump from '../components/Gump.astro';
-import Education from '../components/Education.astro';
-import Experience from '../components/Experience.astro';
+import Layout from "../layouts/Layout.astro";
+import Gump from "../components/Gump.astro";
+import Education from "../components/Education.astro";
+import Experience from "../components/Experience.astro";
 ---
 
 <style>
-	@font-face {
-		font-family: 'DivineLight';
-		src: url('fonts/DivineLight.woff') format('woff');
-		font-weight: normal;
-		font-style: normal;
-		font-display: swap;
-	}
-	body {
-		background-image: url("/assets/images/doom/bluebrick.png");
-	}
-	header {
-		margin-top: 3vh;
-		display: block;
-		justify-content: center;
-		align-items: center;
-		background-image: url("/assets/images/cruelty/crungewallpaper.png");
-		min-height: 10ch;
-		max-width: 120ch;
-		text-align: center;
-		margin-left: auto;
-		margin-right: auto;
-		border-style: ridge;
-		border-color: #5F5536;
-		border-width: 2ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 1;
-		color:  #db3024;
-		margin: auto;
-		font-family: 'DivineLight';
-		text-align : center;
-	}
-	.divine-green {
-		color: #75fb50;
-	}
-	hr {
-		width: 70%;
-        margin-left: auto;
-        margin-right: auto;
-	}
-	.break {
-		flex-basis: 90%;
-		height: 0;
-	}
-		/* main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 80ch;
-		
-	} */
+  body {
+    background-image: url("/assets/images/doom/bluebrick.png");
+  }
+  header {
+    margin-top: 3vh;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/assets/images/cruelty/crungewallpaper.png");
+    min-height: 10ch;
+    max-width: 120ch;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: ridge;
+    border-color: #5f5536;
+    border-width: 2ch;
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: 1;
+    color: #db3024;
+    margin: auto;
+    font-family: "DivineLight";
+    text-align: center;
+  }
 </style>
 
-
 <Layout title="Gump's Gulch">
-	<header>
-		<h1 class="DivineLight">Welcome to <span class="divine-green">Gump's Gulch</span></h1>
-		<div class="break"/>
-		<hr />
-		<div class="break"/>
-		<a href="url">home</a>
-		<a href="url">projects</a>
-		<a href="url">rants</a>
-	</header>
-	<main>
-		<Gump></Gump>
-		<Education></Education>
-		<Experience></Experience>
-	</main>
+  <header>
+    <h1>Welcome to <span class="text-dgreen-500">Gump's Gulch</span></h1>
+    <br />
+    <a href="./home/">home</a>
+    <a href="./projects/">projects</a>
+    <a href="./rants/">rants</a>
+  </header>
+  <main>
+    <Gump />
+    <Education />
+    <Experience />
+  </main>
 </Layout>

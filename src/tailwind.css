@@ -1,12 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("/public/fonts/DivineLight.woff");
 
 @font-face {
-    font-family: 'DivineLight';
-    src: url('fonts/DivineLight.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "DivineLight";
+  src: url("fonts/DivineLight.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    font-family: "DivineLight";
+  }
+
+  a {
+    @apply text-bblue-200;
+  }
+
+  h1 {
+    @apply text-5xl;
+  }
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+html {
+  margin-top: 0;
+  overflow-y: scroll;
+  overflow: hidden;
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: auto;
 }
