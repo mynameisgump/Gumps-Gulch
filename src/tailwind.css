@@ -42,3 +42,43 @@ body {
   height: 100vh;
   overflow: auto;
 }
+
+.wolfback {
+  background-image: url("/assets/images/doom/bluebrick.png");
+}
+
+.container {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/assets/images/cruelty/crungewallpaper.png");
+  background-size: contain;
+  min-height: 50%;
+  max-width: 80%;
+  margin: auto;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: ridge;
+  border-color: #5f5536;
+  border-width: 1ch;
+  margin-top: 5ch;
+  font-size: 3ch;
+  font-family: "DivineLight";
+}
+
+.welcome {
+  margin-top: 3vh;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/assets/images/cruelty/crungewallpaper.png");
+  min-height: 10ch;
+  max-width: 120ch;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: ridge;
+  border-color: #5f5536;
+  border-width: 2ch;
+}

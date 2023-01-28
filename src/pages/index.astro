@@ -6,24 +6,6 @@ import Experience from "../components/Experience.astro";
 ---
 
 <style>
-  body {
-    background-image: url("/assets/images/doom/bluebrick.png");
-  }
-  header {
-    margin-top: 3vh;
-    display: block;
-    justify-content: center;
-    align-items: center;
-    background-image: url("/assets/images/cruelty/crungewallpaper.png");
-    min-height: 10ch;
-    max-width: 120ch;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    border-style: ridge;
-    border-color: #5f5536;
-    border-width: 2ch;
-  }
   h1 {
     font-size: 3rem;
     font-weight: 1;
@@ -35,7 +17,7 @@ import Experience from "../components/Experience.astro";
 </style>
 
 <Layout title="Gump's Gulch">
-  <header>
+  <header class="welcome">
     <h1>Welcome to <span class="text-dgreen-500">Gump's Gulch</span></h1>
     <br />
     <a href="./home/">home</a>

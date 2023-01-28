@@ -14,6 +14,12 @@ module.exports = {
           200: "rgb(61,166,177)",
           500: "rgb(111,239,252)",
         },
+        divineg: {
+          500: "#75fb50",
+        },
+        diviner: {
+          500: "#db3024",
+        },
       },
       fontFamily: {
         DivineLight: ["DivineLight", "sans-serif"],
