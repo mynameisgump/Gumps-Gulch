@@ -22,3 +22,6 @@ Text Darker Green:
 
 Borderline Blue
 111 239 252
+
+Ideas:
+https://www.shadertoy.com/view/ldt3RN
