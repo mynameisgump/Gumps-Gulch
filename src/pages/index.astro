@@ -1,20 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Gump from "../components/Gump.astro";
-import Education from "../components/Education.astro";
-import Experience from "../components/Experience.astro";
+import Introduction from "../components/Introduction.astro";
+import TestCanvas from "../components/TestCanvas";
 ---
+
 <Layout title="Gump's Gulch">
   <header class="welcome">
-    <h1 class="text-diviner-500">Welcome to <span class="text-dgreen-500">Gump's Gulch</span></h1>
+    <h1 class="text-diviner-500">
+      Welcome to <span class="text-dgreen-500">Gump's Gulch</span>
+    </h1>
     <br />
-    <a href="./home/">home</a>
-    <a href="./projects/">projects</a>
-    <a href="./rants/">rants</a>
+    <a class="headerlink" href="./home/">home</a>
+    <a class="headerlink" href="./games/">games</a>
+    <a class="headerlink" href="'./3D">3d</a>
+    <a class="headerlink" href="./projects/">projects</a>
+    <a class="headerlink" href="./rants/">rants</a>
   </header>
   <main>
-    <Gump />
-    <Education />
-    <Experience />
+    <Introduction />
   </main>
+  <TestCanvas client:load />
 </Layout>
