@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Introduction from "../components/Introduction.astro";
-import TestCanvas from "../components/TestCanvas";
+import ScrollSpinners from "../components/ScrollSpinners";
 ---
 
 <Layout title="Gump's Gulch">
@@ -26,5 +26,5 @@ import TestCanvas from "../components/TestCanvas";
     <Introduction />
     <Introduction />
   </main>
-  <TestCanvas client:only />
+  <ScrollSpinners client:only />
 </Layout>
