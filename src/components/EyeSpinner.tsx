@@ -12,9 +12,7 @@ var mouseX = 0, mouseY = 0;
 
 const EyeSpinner = () => {
     const gltf = useGLTF("/3d/LiveSpinnerLeftEyes.glb");
-    const gltfClone = gltf.scene.clone();
     const spinnerRef = useRef<THREE.Mesh>();
-    const viewport = useThree((state) => state.viewport)
 
     useEffect(() => {
         document.body.addEventListener("wheel", (e) => {
