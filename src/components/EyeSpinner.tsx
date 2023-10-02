@@ -18,7 +18,6 @@ const EyeSpinner = () => {
 
     useEffect(() => {
         document.body.addEventListener("wheel", (e) => {
-            console.log("scrolling");
             if (!spinnerRef.current) return;
             spinnerRef.current.rotation.y += e.deltaY*0.005;
             mouseX = (e.clientX / window.innerWidth) * 2 - 1;
@@ -31,18 +30,17 @@ const EyeSpinner = () => {
     },[])
 
     useEffect(() => {
+        console.log("Triggered")
         if (spinnerRef.current){
             (spinnerRef.current.children[4] as THREE.Mesh).geometry.applyMatrix4( new THREE.Matrix4().makeRotationFromEuler( new THREE.Euler( 3*Math.PI/2, Math.PI, 0 ) ) );
             (spinnerRef.current.children[5] as THREE.Mesh).geometry.applyMatrix4( new THREE.Matrix4().makeRotationFromEuler( new THREE.Euler( 3*Math.PI/2, Math.PI, 0 ) ) );
         }
-    }, [spinnerRef?.current?.children[4],spinnerRef?.current?.children[5]])
+    }, [])
 
     useFrame(({ mouse, viewport }) => {
-        console.log("Mousey", mouse)
         const x = (mouseX * viewport.width) / 2.5
         const y = (mouseY * viewport.height) / 2.5
         if (!spinnerRef.current) return;
-        console.log(spinnerRef)
         spinnerRef.current.children[4].lookAt(x, y, 10)
         spinnerRef.current.children[5].lookAt(x, y, 10)
         // spinnerRef.current.material.color.lerp(hovered ? lime : black, 0.05)
