@@ -11,11 +11,12 @@ var mouseX = 0, mouseY = 0;
 type EyeSpinnerProps = {
     direction: "left" | "right";
 }
-const maxVel = 4;
+const maxVel = 10;
 const minVel = maxVel*-1;
 let velocity = 0;
-let friction = 0.005;
+let friction = 0.01;
 let stopRange = 0.005;
+let speed = 0.01;
 
 const EyeSpinner = ({direction}: EyeSpinnerProps) => {
     const gltf = useGLTF("/3d/LiveSpinnerLeftEyes.glb");
@@ -59,7 +60,7 @@ const EyeSpinner = ({direction}: EyeSpinnerProps) => {
         spinnerRef.current.children[4].lookAt(x, y, 10);
         spinnerRef.current.children[5].lookAt(x, y, 10);
         if (direction == "left") {            
-            spinnerRef.current.rotation.y += 0.05 * velocity;
+            spinnerRef.current.rotation.y += speed * velocity;
             if (velocity > 0) {
                 velocity -= friction;
             }
@@ -68,7 +69,7 @@ const EyeSpinner = ({direction}: EyeSpinnerProps) => {
             }
         }
         else if (direction == "right") {
-            spinnerRef.current.rotation.y -= 0.05 * velocity;
+            spinnerRef.current.rotation.y -= speed * velocity;
             if (velocity > 0) {
                 velocity -= friction;
             }
