@@ -8,16 +8,34 @@ import * as THREE from "three";
 
 var mouseX = 0, mouseY = 0;
 
+type EyeSpinnerProps = {
+    direction: "left" | "right";
+}
+const maxVel = 2;
+const minVel = -2;
+let velocity = 0;
+let friction = 0.005;
 
-
-const EyeSpinner = () => {
+const EyeSpinner = ({direction}: EyeSpinnerProps) => {
     const gltf = useGLTF("/3d/LiveSpinnerLeftEyes.glb");
-    const spinnerRef = useRef<THREE.Mesh>();
+    const spinnerRef = useRef<THREE.Group>(null);
+
+    
 
     useEffect(() => {
         document.body.addEventListener("wheel", (e) => {
+            // console.log(e.deltaY)
             if (!spinnerRef.current) return;
-            spinnerRef.current.rotation.y += e.deltaY*0.005;
+            if (direction == "left") {
+                if (velocity > minVel && velocity < maxVel){
+                    velocity += -e.deltaY*0.005
+                }
+            }
+            else if (direction == "right") {
+                if (velocity > minVel && velocity < maxVel){
+                    velocity += -e.deltaY*0.005
+                }
+            }
             mouseX = (e.clientX / window.innerWidth) * 2 - 1;
             mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
         })
@@ -41,9 +59,28 @@ const EyeSpinner = () => {
         if (!spinnerRef.current) return;
         spinnerRef.current.children[4].lookAt(x, y, 10)
         spinnerRef.current.children[5].lookAt(x, y, 10)
-        // spinnerRef.current.material.color.lerp(hovered ? lime : black, 0.05)
-    })
-    
+        if (direction == "left") {            
+            spinnerRef.current.rotation.y += 0.05 * velocity;
+            if (velocity > 0) {
+                velocity -= friction;
+            }
+            else if (velocity < 0) {
+                velocity += friction;
+            }
+        }
+        else if (direction == "right") {
+            console.log(velocity)
+            spinnerRef.current.rotation.y -= 0.05 * velocity;
+            if (velocity > 0) {
+                velocity -= friction;
+            }
+            else if (velocity < 0) {
+                velocity += friction;
+            }
+        }
+
+    });
+     
     return (
         <Clone deep={true} ref={spinnerRef} rotation={[degToRad(90),0,0]} object={gltf.scene}></Clone>
     )

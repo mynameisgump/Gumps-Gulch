@@ -10,13 +10,13 @@ const ScrollSpinners = () => {
 
     return(
       <>
-      <Canvas  style={{pointerEvents: "none", position:"fixed", bottom: "-500px", left: "-500px", width: "1000px", height: "1000px"}}>
-        <EyeSpinner></EyeSpinner>
+      <Canvas style={{pointerEvents: "none", position:"fixed", bottom: "-500px", left: "-500px", width: "1000px", height: "1000px"}}>
+        <EyeSpinner direction="left"></EyeSpinner>
         <Environment preset='city'></Environment>
       </Canvas>
 
       <Canvas style={{pointerEvents: "none", position:"fixed", bottom: "-500px", right: "-500px", width: "1000px", height: "1000px"}}>
-        <EyeSpinner></EyeSpinner>
+        <EyeSpinner direction="right"></EyeSpinner>
         <Environment preset='city'></Environment>
       </Canvas>  
       </>   

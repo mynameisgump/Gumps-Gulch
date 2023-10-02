@@ -82,6 +82,12 @@ body {
   border-color: #5f5536;
   border-width: 2ch;
 }
+
+.headerlink {
+  font-size: 30px;
+  color: #56EEF4;
+}
+
 .headerlink:hover {
   color: #5f5536;
 }
