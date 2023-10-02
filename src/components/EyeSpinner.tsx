@@ -11,7 +11,8 @@ var mouseX = 0, mouseY = 0;
 type EyeSpinnerProps = {
     direction: "left" | "right";
 }
-const maxVel = 10;
+
+const maxVel = 20;
 const minVel = maxVel*-1;
 let velocity = 0;
 let friction = 0.01;
@@ -25,18 +26,10 @@ const EyeSpinner = ({direction}: EyeSpinnerProps) => {
     useEffect(() => {
         document.body.addEventListener("wheel", (e) => {
             if (!spinnerRef.current) return;
-
-            if (direction == "left") {
-                if (velocity > minVel && velocity < maxVel){
-                    velocity += -e.deltaY*0.005;
-                }
+            if (velocity > minVel && velocity < maxVel){
+                const randVar = Math.random() * (1.5 - 0.75) + 0.75;
+                velocity += (-e.deltaY*0.005)*randVar;
             }
-            else if (direction == "right") {
-                if (velocity > minVel && velocity < maxVel){
-                    velocity += -e.deltaY*0.005;
-                }
-            }
-
             mouseX = (e.clientX / window.innerWidth) * 2 - 1;
             mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
         });
