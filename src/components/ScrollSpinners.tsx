@@ -26,33 +26,22 @@ const ScrollSpinners = () => {
     const rightMeshRef = useRef<THREE.Mesh>();
 
 
-    useEffect(() => {
-      document.body.addEventListener("wheel", (e) => {
-        console.log("scrolling");
-        if (!leftMeshRef.current || !rightMeshRef.current) return;
-        leftMeshRef.current.rotation.y -= e.deltaY*0.005;
-        rightMeshRef.current.rotation.y += e.deltaY*0.005;
-      })
-      document.body.addEventListener("mousemove", (e) => {
-        if (!leftMeshRef.current || !rightMeshRef.current) return;
-        
-        mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-        mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
-        target.x = ( mouseX );
-        target.y = ( - mouseY );
-        
-        target.z = 1;
-        // leftMeshRef.current.children[2].lookAt(target);
-        // console.log(mouseX, mouseY);
-      });
-    },[])
+    // useEffect(() => {
+    //   document.body.addEventListener("wheel", (e) => {
+    //     console.log("scrolling");
+    //     if (!leftMeshRef.current || !rightMeshRef.current) return;
+    //     leftMeshRef.current.rotation.y -= e.deltaY*0.005;
+    //     rightMeshRef.current.rotation.y += e.deltaY*0.005;
+    //   })
+    // },[])
 
     return(
       <>
       <Canvas  style={{pointerEvents: "none", position:"fixed", bottom: "-500px", left: "-500px", width: "1000px", height: "1000px"}}>
         <group>
-          <primitive ref={leftMeshRef} rotation={[degToRad(90),0,0]} object={leftScene}></primitive>
+          {/* <primitive ref={leftMeshRef} rotation={[degToRad(90),0,0]} object={leftScene}></primitive> */}
         </group>
+        <EyeSpinner></EyeSpinner>
         <GizmoHelper
           alignment="top-right" // widget alignment within scene
         >
@@ -62,7 +51,7 @@ const ScrollSpinners = () => {
       </Canvas>
 
       <Canvas style={{pointerEvents: "none", position:"fixed", bottom: "-500px", right: "-500px", width: "1000px", height: "1000px"}}>
-          <primitive ref={rightMeshRef} visible={false} rotation={[degToRad(90),0,0]} object={rightScene}></primitive>
+          {/* <primitive ref={rightMeshRef} visible={false} rotation={[degToRad(90),0,0]} object={rightScene}></primitive> */}
           <EyeSpinner></EyeSpinner>
         <Environment preset='city'></Environment>
         <GizmoHelper

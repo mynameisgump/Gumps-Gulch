@@ -9,27 +9,32 @@ import * as THREE from "three";
 var mouseX = 0, mouseY = 0;
 
 
+
 const EyeSpinner = () => {
     const gltf = useGLTF("/3d/LiveSpinnerLeftEyes.glb");
+    const gltfClone = gltf.scene.clone();
     const spinnerRef = useRef<THREE.Mesh>();
     const viewport = useThree((state) => state.viewport)
 
     useEffect(() => {
+        document.body.addEventListener("wheel", (e) => {
+            console.log("scrolling");
+            if (!spinnerRef.current) return;
+            spinnerRef.current.rotation.y += e.deltaY*0.005;
+            mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+        })
         document.body.addEventListener("mousemove", (e) => {          
           mouseX = (e.clientX / window.innerWidth) * 2 - 1;
           mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
-          // leftMeshRef.current.children[2].lookAt(target);
-          // console.log(mouseX, mouseY);
-
         });
     },[])
 
     useEffect(() => {
         if (spinnerRef.current){
             (spinnerRef.current.children[4] as THREE.Mesh).geometry.applyMatrix4( new THREE.Matrix4().makeRotationFromEuler( new THREE.Euler( 3*Math.PI/2, Math.PI, 0 ) ) );
-
         }
-    }, [spinnerRef.current.children[4]])
+    }, [spinnerRef?.current?.children[4]])
 
     useFrame(({ mouse, viewport }) => {
         console.log("Mousey", mouse)
