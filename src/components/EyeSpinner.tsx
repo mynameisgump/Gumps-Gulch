@@ -1,4 +1,4 @@
-import { useGLTF } from "@react-three/drei";
+import { Clone, useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useRef } from "react";
 import { degToRad } from "three/src/math/MathUtils";
@@ -33,8 +33,9 @@ const EyeSpinner = () => {
     useEffect(() => {
         if (spinnerRef.current){
             (spinnerRef.current.children[4] as THREE.Mesh).geometry.applyMatrix4( new THREE.Matrix4().makeRotationFromEuler( new THREE.Euler( 3*Math.PI/2, Math.PI, 0 ) ) );
+            (spinnerRef.current.children[5] as THREE.Mesh).geometry.applyMatrix4( new THREE.Matrix4().makeRotationFromEuler( new THREE.Euler( 3*Math.PI/2, Math.PI, 0 ) ) );
         }
-    }, [spinnerRef?.current?.children[4]])
+    }, [spinnerRef?.current?.children[4],spinnerRef?.current?.children[5]])
 
     useFrame(({ mouse, viewport }) => {
         console.log("Mousey", mouse)
@@ -43,11 +44,12 @@ const EyeSpinner = () => {
         if (!spinnerRef.current) return;
         console.log(spinnerRef)
         spinnerRef.current.children[4].lookAt(x, y, 10)
+        spinnerRef.current.children[5].lookAt(x, y, 10)
         // spinnerRef.current.material.color.lerp(hovered ? lime : black, 0.05)
     })
     
     return (
-        <primitive ref={spinnerRef} rotation={[degToRad(90),0,0]} object={gltf.scene.clone()}></primitive>
+        <Clone deep={true} ref={spinnerRef} rotation={[degToRad(90),0,0]} object={gltf.scene}></Clone>
     )
 };
 
