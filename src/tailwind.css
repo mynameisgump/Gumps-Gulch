@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: "DivineLight";
-  src: url("fonts/DivineLight.woff") format("woff");
+  src: url("/fonts/DivineLight.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;

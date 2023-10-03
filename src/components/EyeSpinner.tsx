@@ -21,7 +21,7 @@ let stopRange = 0.005;
 let speed = 0.01;
 
 const EyeSpinner = ({direction,xOffset,yOffset}: EyeSpinnerProps) => {
-    const gltf = useGLTF("/3d/LiveSpinnerLeftEyes.glb");
+    const gltf = useGLTF("/3d/LiveSpinner.glb");
     const spinnerRef = useRef<THREE.Group>(null);
 
     useEffect(() => {
