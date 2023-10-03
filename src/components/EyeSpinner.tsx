@@ -5,7 +5,6 @@ import { degToRad } from "three/src/math/MathUtils";
 import { useEffect } from "react";
 import * as THREE from "three";
 
-
 var mouseX = 0, mouseY = 0;
 
 type EyeSpinnerProps = {
@@ -38,8 +37,6 @@ const EyeSpinner = ({direction,xOffset,yOffset}: EyeSpinnerProps) => {
         document.body.addEventListener("mousemove", (e) => {          
             mouseX = ((e.clientX / window.innerWidth) * 2 - 1);
             mouseY = (-(e.clientY / window.innerHeight) * 2 + 1);
-            console.log("Mouse X:",mouseX);
-            console.log("Mouse Y:",mouseY);
         });
     },[])
 
