@@ -14,20 +14,20 @@ const ScrollSpinners = () => {
         <Environment preset='city'></Environment>
       </Canvas>
 
-      <Canvas style={{pointerEvents: "none", position:"fixed", top: "-500px", left: "-500px", width: "1000px", height: "1000px"}}>
+      {/* <Canvas style={{pointerEvents: "none", position:"fixed", top: "-500px", left: "-500px", width: "1000px", height: "1000px"}}>
         <EyeSpinner xOffset={0.75} yOffset={-1}  direction="left"></EyeSpinner>
         <Environment preset='city'></Environment>
-      </Canvas>
+      </Canvas> */}
 
       <Canvas style={{pointerEvents: "none", position:"fixed", bottom: "-500px", right: "-500px", width: "1000px", height: "1000px"}}>
         <EyeSpinner xOffset={-0.75} yOffset={1} direction="right"></EyeSpinner>
         <Environment preset='city'></Environment>
       </Canvas>  
 
-      <Canvas style={{pointerEvents: "none", position:"fixed", top: "-500px", right: "-500px", width: "1000px", height: "1000px"}}>
+      {/* <Canvas style={{pointerEvents: "none", position:"fixed", top: "-500px", right: "-500px", width: "1000px", height: "1000px"}}>
         <EyeSpinner xOffset={-0.75} yOffset={-1} direction="right"></EyeSpinner>
         <Environment preset='city'></Environment>
-      </Canvas>  
+      </Canvas>   */}
       </>   
     )
 }
