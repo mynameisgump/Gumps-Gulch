@@ -73,8 +73,8 @@ body {
   align-items: center;
   background-image: url("/assets/images/cruelty/crungewallpaper.png");
   background-size: contain;
-  max-height: 50%;
-  max-width: 15%;
+  max-height: 500px;
+  max-width: 500px;
   margin: auto;
   text-align: center;
   margin-left: auto;
