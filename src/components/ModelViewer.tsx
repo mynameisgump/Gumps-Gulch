@@ -2,8 +2,12 @@ import { Canvas } from "@react-three/fiber"
 import { useGLTF, Environment, Clone, OrbitControls, Bounds, useAnimations } from "@react-three/drei"
 import { useEffect } from "react";
 
-const Model = () => {
-    const {scene, animations} = useGLTF("/3d/Manson-Fish-Slow.glb");
+type ModelProps = {
+    modelFile: string;
+}
+
+const Model = ({ modelFile }: ModelProps) => {
+    const {scene, animations} = useGLTF("/3d/".concat(modelFile));
     const { actions } = useAnimations(animations, scene);
     // console.log(actions);
     useEffect(() => {
@@ -11,7 +15,6 @@ const Model = () => {
         if (actions){
             actions?.Swimmin.play()
         }
-        
     })
     return(
         <>
@@ -26,11 +29,10 @@ const Model = () => {
 }
 
 
-const ModelViewer = () => {
-
+const ModelViewer = (props: ModelProps) => {
     return (
         <Canvas style={{height: "300px"}}>
-            <Model></Model>
+            <Model {...props}></Model>
         </Canvas>
     )
 }
