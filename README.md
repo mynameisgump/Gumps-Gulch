@@ -27,8 +27,9 @@ Ideas:
 https://www.shadertoy.com/view/ldt3RN
 
 To Do:
+
 - Add a demos page
 - Fill out models page more
 - Add game jam games with links + Write ups
 - Github Stonks page?
-- 
+- Create some sort of cursed git loader

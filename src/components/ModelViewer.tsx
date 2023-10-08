@@ -9,13 +9,15 @@ type ModelProps = {
 const Model = ({ modelFile }: ModelProps) => {
     const {scene, animations} = useGLTF("/3d/".concat(modelFile));
     const { actions } = useAnimations(animations, scene);
-    // console.log(actions);
-    // useEffect(() => {
-    //     console.log(actions)
-    //     if (actions){
-    //         actions?.Swimmin.play()
-    //     }
-    // })
+    
+    //  console.log(actions);
+    useEffect(() => {
+        if (animations.length > 0 && actions){
+            console.log(animations)
+            const animation_name = animations[0].name;
+            actions[animation_name]!.play()
+        }
+    })
     return(
         <>
             <Bounds fit clip observe damping={6} margin={2}>
