@@ -10,12 +10,12 @@ const Model = ({ modelFile }: ModelProps) => {
     const {scene, animations} = useGLTF("/3d/".concat(modelFile));
     const { actions } = useAnimations(animations, scene);
     // console.log(actions);
-    useEffect(() => {
-        console.log(actions)
-        if (actions){
-            actions?.Swimmin.play()
-        }
-    })
+    // useEffect(() => {
+    //     console.log(actions)
+    //     if (actions){
+    //         actions?.Swimmin.play()
+    //     }
+    // })
     return(
         <>
             <Bounds fit clip observe damping={6} margin={2}>

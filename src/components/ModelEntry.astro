@@ -1,8 +1,9 @@
 ---
 import ModelViewer from "./ModelViewer";
+const { modelFile, title } = Astro.props;
 ---
 
 <div class="model-container">
-  <h1 class="text-divineg-500">Manson Fish</h1>
-  <ModelViewer modelFile="Manson-Fish-Slow.glb" client:only />
+  <h1 class="text-divineg-500">{title}</h1>
+  <ModelViewer modelFile={modelFile} client:only />
 </div>
