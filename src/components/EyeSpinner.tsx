@@ -35,8 +35,6 @@ const EyeSpinner = ({direction,xOffset,yOffset,margin = [80, 80], alignment = 'b
     const gltf = useGLTF("/3d/LiveSpinner.glb");
     const spinnerRef = useRef<THREE.Group>(null);
 
-    const size = useThree((state) => state.size)
-
     // Spinning Effect
     useEffect(() => {
         document.body.addEventListener("wheel", (e) => {
@@ -91,23 +89,8 @@ const EyeSpinner = ({direction,xOffset,yOffset,margin = [80, 80], alignment = 'b
         }
 
     });
-     
-    const [marginX, marginY] = margin
-    const x = alignment.endsWith('-center')
-        ? 0
-        : alignment.endsWith('-left')
-        ? -size.width / 2 + marginX
-        : size.width / 2 - marginX
-    const y = alignment.startsWith('center-')
-        ? 0
-        : alignment.startsWith('top-')
-        ? size.height / 2 - marginY
-        : -size.height / 2 + marginY
-
     return (
-        <group position={[x, y, 0]}>
             <Clone deep={true} ref={spinnerRef} rotation={[degToRad(90),0,0]} object={gltf.scene}></Clone>
-        </group>
     )
 };
 
