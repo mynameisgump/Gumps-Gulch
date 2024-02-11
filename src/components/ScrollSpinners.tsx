@@ -12,8 +12,8 @@ const ScrollSpinners = () => {
     // const margin = 0.5;
 
     return(
-      <div style={{pointerEvents: "none", height: "100%", width: "100%" , position: "fixed", top: 0, left: 0}}>
-        <Canvas style={{pointerEvents: "none"}}>
+      <div style={{pointerEvents: "none", height: "100%", width: "100%" , position: "fixed", top: 0, left: 0}} >
+        <Canvas style={{pointerEvents: "none"}} >
           <OrthographicCamera zoom={100} makeDefault position={[0, 0, 100]} />
           <Environment preset='city'/>
           <Spinnin></Spinnin>

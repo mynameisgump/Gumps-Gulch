@@ -7,13 +7,22 @@ import EyeSpinner from "./EyeSpinner";
 
 
 const Spinnin = () => {
-    const { width, height } = useThree((state) => state.viewport)
+    const viewport = useThree((state) => state.viewport)
     const margin = 0.5;
 
     return (
         <>
-            <Center bottom right >
+            <Center top left position={[0, 0, 0]} onCentered={({ container, height }) => container.scale.setScalar(viewport.height / height)}>
                 <EyeSpinner xOffset={0.75} yOffset={1} direction="left"></EyeSpinner>
+            </Center>
+            <Center top right >
+                <EyeSpinner xOffset={0.75} yOffset={1} direction="right"></EyeSpinner>
+            </Center>
+            <Center bottom left >
+                <EyeSpinner xOffset={0.75} yOffset={1} direction="left"></EyeSpinner>
+            </Center>
+            <Center bottom right >
+                <EyeSpinner xOffset={0.75} yOffset={1} direction="right"></EyeSpinner>
             </Center>
             {/* <Center bottom right position={[(-width / 2), (height / 2), 0]}>
                 <EyeSpinner xOffset={0.75} yOffset={1} direction="left"></EyeSpinner>
