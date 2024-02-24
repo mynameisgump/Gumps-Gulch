@@ -13,6 +13,7 @@ const Spinnin = () => {
     const topLeftSpinnerRef = useRef<THREE.Group>(null);
     const topRightSpinnerRef = useRef<THREE.Group>(null);
     const bottomLeftSpinner = useRef<THREE.Group>(null);
+    const bottomRightSpinner = useRef<THREE.Group>(null);
     useFrame(()=> {
         if (topLeftSpinnerRef.current){
             topLeftSpinnerRef.current.position.x = -viewport.width / 2 + margin;
@@ -22,7 +23,14 @@ const Spinnin = () => {
             topRightSpinnerRef.current.position.x = viewport.width / 2 - margin;
             topRightSpinnerRef.current.position.y = viewport.height / 2 - margin;
         }
-        console.log("God Why")
+        if (bottomLeftSpinner.current){
+            bottomLeftSpinner.current.position.x = -viewport.width / 2 + margin;
+            bottomLeftSpinner.current.position.y = -viewport.height / 2 + margin;
+        }
+        if (bottomRightSpinner.current){
+            bottomRightSpinner.current.position.x = viewport.width / 2 - margin;
+            bottomRightSpinner.current.position.y = -viewport.height / 2 + margin;
+        }
     })
 
     return (
@@ -33,30 +41,12 @@ const Spinnin = () => {
             <group ref={topRightSpinnerRef}>
                 <EyeSpinner xOffset={0.75} yOffset={1} direction="left"></EyeSpinner>
             </group>
-            {/* <Center ref={topLeftSpinnerRef} top left position={[0, 0, 0]} onCentered={({ container, height }) => container.scale.setScalar(viewport.height / height)}>
-                <EyeSpinner xOffset={0.75} yOffset={1} direction="left"></EyeSpinner>
-            </Center> */}
-            {/* <Center ref={topRightSpinnerRef} top right >
+            <group ref={bottomLeftSpinner}>
                 <EyeSpinner xOffset={0.75} yOffset={1} direction="right"></EyeSpinner>
-            </Center>
-            <Center bottom left >
-                <EyeSpinner xOffset={0.75} yOffset={1} direction="left"></EyeSpinner>
-            </Center>
-            <Center bottom right >
+            </group>
+            <group ref={bottomRightSpinner}>
                 <EyeSpinner xOffset={0.75} yOffset={1} direction="right"></EyeSpinner>
-            </Center> */}
-            {/* <Center bottom right position={[(-width / 2), (height / 2), 0]}>
-                <EyeSpinner xOffset={0.75} yOffset={1} direction="left"></EyeSpinner>
-            </Center> */}
-            {/* <Center top right position={[(-width / 2)-1.5, (-height / 2)+0.6, 0]}>
-                <EyeSpinner xOffset={0.75} yOffset={1} direction="left"></EyeSpinner>
-            </Center>
-            <Center top right position={[(width / 2)-1.5, (-height / 2)+0.6, 0]}>
-                <EyeSpinner xOffset={0.75} yOffset={1} direction="left"></EyeSpinner>
-            </Center>
-            <Center top right position={[(width / 2)-1.5, (height / 2)+0.6, 0]}>
-                <EyeSpinner xOffset={0.75} yOffset={1} direction="left"></EyeSpinner>
-            </Center> */}
+            </group>
         </>
     )
 }
