@@ -32,7 +32,7 @@ let stopRange = 0.005;
 let speed = 0.01;
 
 const EyeSpinner = ({direction,xOffset,yOffset,margin = [80, 80], alignment = 'bottom-right'}: EyeSpinnerProps) => {
-    const gltf = useGLTF("/3d/LiveSpinner.glb");
+    const gltf = useGLTF("/3d/LiveSpinner_p_y.glb");
     const spinnerRef = useRef<THREE.Group>(null);
 
     // Spinning Effect
@@ -53,21 +53,23 @@ const EyeSpinner = ({direction,xOffset,yOffset,margin = [80, 80], alignment = 'b
     },[])
 
     // Eyes
-    useEffect(() => {
-        if (spinnerRef.current){
-            (spinnerRef.current.children[4] as THREE.Mesh).geometry.applyMatrix4( new THREE.Matrix4().makeRotationFromEuler( new THREE.Euler( 3*Math.PI/2, Math.PI, 0 ) ) );
-            (spinnerRef.current.children[5] as THREE.Mesh).geometry.applyMatrix4( new THREE.Matrix4().makeRotationFromEuler( new THREE.Euler( 3*Math.PI/2, Math.PI, 0 ) ) );
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (spinnerRef.current){
+    //         (spinnerRef.current.children[4] as THREE.Mesh).geometry.applyMatrix4( new THREE.Matrix4().makeRotationFromEuler( new THREE.Euler( 3*Math.PI/2, Math.PI, 0 ) ) );
+    //         (spinnerRef.current.children[5] as THREE.Mesh).geometry.applyMatrix4( new THREE.Matrix4().makeRotationFromEuler( new THREE.Euler( 3*Math.PI/2, Math.PI, 0 ) ) );
+    //     }
+    // }, [])
 
     useFrame(({ mouse, viewport }) => {
-        const x = ((mouseX+xOffset)* viewport.width) / 2.5
-        const y = ((mouseY+yOffset)* viewport.height) / 2.5
+        const x = ((mouseX)* viewport.width) / 2.5
+        const y = ((mouseY)* viewport.height) / 2.5
         if (!spinnerRef.current) return;
         spinnerRef.current.children[4].lookAt(x, y, 10);
         spinnerRef.current.children[5].lookAt(x, y, 10);
+
+        // Spin Code
         if (direction == "left") {            
-            spinnerRef.current.rotation.y += speed * velocity;
+            spinnerRef.current.rotation.z += speed * velocity;
             if (velocity > 0) {
                 velocity -= friction;
             }
@@ -76,7 +78,7 @@ const EyeSpinner = ({direction,xOffset,yOffset,margin = [80, 80], alignment = 'b
             }
         }
         else if (direction == "right") {
-            spinnerRef.current.rotation.y -= speed * velocity;
+            spinnerRef.current.rotation.z -= speed * velocity;
             if (velocity > 0) {
                 velocity -= friction;
             }
@@ -90,7 +92,7 @@ const EyeSpinner = ({direction,xOffset,yOffset,margin = [80, 80], alignment = 'b
 
     });
     return (
-            <Clone deep={true} ref={spinnerRef} rotation={[degToRad(90),0,0]} object={gltf.scene}></Clone>
+            <Clone deep={true} ref={spinnerRef} rotation={[0,0,0]} object={gltf.scene}></Clone>
     )
 };
 
