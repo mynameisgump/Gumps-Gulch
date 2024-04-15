@@ -1,27 +1,12 @@
 import { Clone, useGLTF } from "@react-three/drei";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
-import { degToRad } from "three/src/math/MathUtils";
 import { useEffect } from "react";
-import * as THREE from "three";
 
 var mouseX = 0, mouseY = 0;
 
 type EyeSpinnerProps = {
     direction: "left" | "right";
-    xOffset: number;
-    yOffset: number;
-    alignment?:
-    | 'top-left'
-    | 'top-right'
-    | 'bottom-right'
-    | 'bottom-left'
-    | 'bottom-center'
-    | 'center-right'
-    | 'center-left'
-    | 'center-center'
-    | 'top-center';
-    margin?: [number, number];
 }
 
 const maxVel = 20;
@@ -31,7 +16,7 @@ let friction = 0.01;
 let stopRange = 0.005;
 let speed = 0.01;
 
-const EyeSpinner = ({direction,xOffset,yOffset,margin = [80, 80], alignment = 'bottom-right'}: EyeSpinnerProps) => {
+const EyeSpinner = ({direction}: EyeSpinnerProps) => {
     const gltf = useGLTF("/3d/LiveSpinner_p_y.glb");
     const spinnerRef = useRef<THREE.Group>(null);
 
@@ -51,14 +36,6 @@ const EyeSpinner = ({direction,xOffset,yOffset,margin = [80, 80], alignment = 'b
             mouseY = (-(e.clientY / window.innerHeight) * 2 + 1);
         });
     },[])
-
-    // Eyes
-    // useEffect(() => {
-    //     if (spinnerRef.current){
-    //         (spinnerRef.current.children[4] as THREE.Mesh).geometry.applyMatrix4( new THREE.Matrix4().makeRotationFromEuler( new THREE.Euler( 3*Math.PI/2, Math.PI, 0 ) ) );
-    //         (spinnerRef.current.children[5] as THREE.Mesh).geometry.applyMatrix4( new THREE.Matrix4().makeRotationFromEuler( new THREE.Euler( 3*Math.PI/2, Math.PI, 0 ) ) );
-    //     }
-    // }, [])
 
     useFrame(({ mouse, viewport }) => {
         const x = ((mouseX)* viewport.width) / 2.5

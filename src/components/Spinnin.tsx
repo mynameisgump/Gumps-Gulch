@@ -36,16 +36,16 @@ const Spinnin = () => {
     return (
         <>
             <group ref={topLeftSpinnerRef}>
-                <EyeSpinner xOffset={0.75} yOffset={1} direction="left"></EyeSpinner>
+                <EyeSpinner direction="left"></EyeSpinner>
             </group>
             <group ref={topRightSpinnerRef}>
-                <EyeSpinner xOffset={0.75} yOffset={1} direction="right"></EyeSpinner>
+                <EyeSpinner direction="right"></EyeSpinner>
             </group>
             <group ref={bottomLeftSpinner}>
-                <EyeSpinner xOffset={0.75} yOffset={1} direction="left"></EyeSpinner>
+                <EyeSpinner direction="left"></EyeSpinner>
             </group>
             <group ref={bottomRightSpinner}>
-                <EyeSpinner xOffset={0.75} yOffset={1} direction="right"></EyeSpinner>
+                <EyeSpinner direction="right"></EyeSpinner>
             </group>
         </>
     )
